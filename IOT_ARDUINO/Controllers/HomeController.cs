@@ -1,32 +1,41 @@
-﻿using IOT_ARDUINO.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace IOT_ARDUINO.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        #region Fields
+
+        private readonly ILogger<HomeController> logger;
+
+        #endregion
+
+        #region Constructors
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            this.logger = logger;
         }
 
-        public IActionResult Index()
+        #endregion
+
+        #region Proprietes
+
+        public ILogger<HomeController> Logger
         {
-            return View();
+            get
+            {
+                return this.logger;
+            }
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        #endregion
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        #region Methods
+
+
+
+        #endregion
+
     }
 }
